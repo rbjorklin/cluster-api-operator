@@ -34,5 +34,8 @@ spec:
     namespace: {{ $.Values.configSecret.namespace }}
     {{- end }}
 {{- end }}
+{{- if $controlPlane.manifestPatches }}
+  manifestPatches: {{ toYaml $controlPlane.manifestPatches | nindent 4 }}
+{{- end }}
 {{- end }} {{/* range $controlPlane := .Values.controlPlane */}}
 {{- end }} {{/* if .Values.controlPlane */}}
